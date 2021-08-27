@@ -2,7 +2,10 @@
 // ------------------------------- ВСЕ ИМПОРТЫ --------------------------------
 // ----------------------------------------------------------------------------
 
-import aaa from './js/db'
+// import aaa from './js/db.js'
+
+import menuArr from './menu.json'
+import menuItem from './templates/menu-items.hbs'
 
 // ----------------------------------------------------------------------------
 // ------------------------------- ВСЕ ДОСТУПЫ --------------------------------
@@ -50,3 +53,9 @@ if (className) {
     inputEl.checked = 'true'
   }
 }
+
+const menuRef = document.querySelector('.js-menu')
+const markup = menuItem(menuArr)
+menuRef.insertAdjacentHTML('beforeend', markup).trim()
+const menuItems = Handlburs.compire(menuArr)
+console.log(menuRef)
