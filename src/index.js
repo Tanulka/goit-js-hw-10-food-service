@@ -5,7 +5,8 @@ const bodyRef = document.body;
 
 const inputEl = document.getElementById('theme-switch-toggle');
 
-inputEl.addEventListener('change', () => {
+inputEl.addEventListener('change', handleChecked);
+function handleChecked() {
   if (inputEl.checked) {
     bodyRef.classList.add('dark-theme');
     bodyRef.classList.remove('light-theme');
@@ -15,9 +16,10 @@ inputEl.addEventListener('change', () => {
     bodyRef.classList.remove('dark-theme');
     localStorage.setItem('theme', 'light-theme');
   }
-});
+}
 
-let className = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+const themeLS = localStorage.getItem('theme');
+let className = themeLS ? themeLS : null;
 
 if (className) {
   bodyRef.setAttribute('class', className);
